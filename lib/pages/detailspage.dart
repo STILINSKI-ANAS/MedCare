@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 import '../models/pill.dart';
@@ -19,27 +20,14 @@ class _DetailsPageState extends State<DetailsPage> {
 
   static String formatTimeOfDay(DateTime tod) {
     final dt = DateTime(tod.year, tod.month, tod.day, tod.hour, tod.minute);
-    final format = DateFormat.jm(); //"6:00 AM"
+    final format = DateFormat.Hm(); //"6:00 AM"
     return format.format(dt);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Material(
-          color: Colors.transparent,
-          child: InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              onTap: () => {Navigator.pop(context)},
-              child: const Icon(Iconsax.arrow_left_2)),
-        ),
-        title: const Text(
-          'Details',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-        ),
-      ),
+      appBar: _buildAppBar(),
       body: Stack(children: [
         Positioned(
             left: 15,
@@ -48,7 +36,7 @@ class _DetailsPageState extends State<DetailsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Description',
+                  '',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                 ),
                 const SizedBox(
@@ -57,7 +45,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 30,
                   child: Text(
-                    widget.pill.description,
+                    "",
                     style: TextStyle(
                         height: 0.95,
                         color: Theme.of(context)
@@ -82,7 +70,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     const TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
               ),
               Text(
-                '${widget.pill.dosage} pill, once per day',
+                '${widget.pill.dosage} dose, par Jour',
                 style: TextStyle(
                     color: Theme.of(context)
                         .colorScheme
@@ -95,8 +83,9 @@ class _DetailsPageState extends State<DetailsPage> {
                 child: Hero(
                   tag: 'image' + widget.index.toString(),
                   child: Image.asset(
-                    "assets/images/Pill.png",
+                    "assets/images/PillD.png",
                     fit: BoxFit.cover,
+                    filterQuality: FilterQuality.high,
                   ),
                 ),
               ),
@@ -110,6 +99,15 @@ class _DetailsPageState extends State<DetailsPage> {
           ),
         )
       ]),
+    );
+  }
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: const Color(0xFF32A060),
+      elevation: 0,
+      iconTheme: const IconThemeData(color: Colors.white),
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      title: const Text("Details Sur Le Medicament"),
     );
   }
 }

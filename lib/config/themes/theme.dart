@@ -12,7 +12,7 @@ class ThemeProvider extends ChangeNotifier {
 
 class AppTheme {
    static final lightTheme = ThemeData(
-       scaffoldBackgroundColor: const Color(0xFFF6F8FC),
+      scaffoldBackgroundColor: const Color(0xFFF6F8FC),
       fontFamily: 'SFPro-Display',
       inputDecorationTheme: const InputDecorationTheme(
           contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -36,7 +36,31 @@ class AppTheme {
           onBackground: Colors.black,
 
           onError: Colors.black,
-          brightness: Brightness.light));
+          brightness: Brightness.light),
+       textTheme: const TextTheme(
+         headline1: TextStyle(
+           fontSize: 25,
+           color: Color(0xFF32A060),
+           fontWeight: FontWeight.bold,
+         ),
+         headline2: TextStyle(
+             fontSize: 18,
+             color: Colors.black,
+             fontWeight: FontWeight.w400,
+             wordSpacing: 1.2,
+             height: 1.2),
+         headline3: TextStyle(
+           fontSize: 18,
+           color: Color(0xFF32A060),
+           fontWeight: FontWeight.bold,
+         ),
+         headline4: TextStyle(
+           fontSize: 18,
+           color: Colors.white,
+           fontWeight: FontWeight.bold,
+         ),
+       )
+   );
 
 
   static final darkTheme = ThemeData(

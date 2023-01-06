@@ -92,6 +92,7 @@ class _DoctorPageState extends State<DoctorPage> {
       iconTheme: const IconThemeData(color: Colors.white),
       systemOverlayStyle: SystemUiOverlayStyle.light,
       title: const Text("La Liste des Pharmacies de garde"),
+      automaticallyImplyLeading: false,
     );
   }
 

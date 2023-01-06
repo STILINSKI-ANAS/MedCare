@@ -1,10 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:map_launcher/map_launcher.dart';
 import 'package:medcare/pages/pharmacie2.dart';
-
 import '../router/routes.dart';
 import 'doctorpage.dart';
 import 'formpage.dart';
@@ -65,23 +61,25 @@ class _BottomBarState extends State<BottomBar> {
         unselectedItemColor: const Color(0xff526480),
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
+              icon: Icon(FluentSystemIcons.ic_fluent_home_regular,color:Color(
+                  0xBE9A9A9A)),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled,color:Color(0xFF32A060)),
               label: "home"),
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_add_circle_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_add_circle_filled),
-              label: "search"),
+              icon: Icon(FluentSystemIcons.ic_fluent_add_circle_regular,color:Color(0xBE9A9A9A)),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_add_circle_filled,color:Color(0xFF32A060)),
+              label: "Add Med"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.local_pharmacy),
-              activeIcon: Icon(Icons.local_pharmacy),
-              label: "home"),
+              icon: Icon(Icons.local_pharmacy,color:Color(0xBE9A9A9A)),
+              activeIcon: Icon(Icons.local_pharmacy,color:Color(0xFF32A060)),
+              label: "Pharmacie"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.medical_services_rounded),
-              activeIcon: Icon(Icons.medical_services_rounded),
-              label: "person"),
+              icon: Icon(Icons.medical_services_rounded,color:Color(0xBE9A9A9A)),
+              activeIcon: Icon(Icons.medical_services_rounded,color:Color(0xFF32A060)),
+              label: "Docteur"),
         ],
       ),
     );
   }
+
 }

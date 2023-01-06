@@ -45,6 +45,9 @@ dependencies:
   map_launcher: ^2.4.0
   url_launcher: ^6.1.7
   maps_launcher: ^2.0.1
+  animate_do: any
+  smooth_page_indicator: ^1.0.0+2
+  shared_preferences: ^2.0.12
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -94,6 +97,10 @@ flutter:
     - assets/images/cherly.png
     - assets/images/mathew.png
     - assets/images/albert.png
+    - assets/images/PillD.png
+    - assets/1.png
+    - assets/2.png
+    - assets/3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

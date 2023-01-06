@@ -125,6 +125,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
       iconTheme: const IconThemeData(color: Colors.white),
       systemOverlayStyle: SystemUiOverlayStyle.light,
       title: const Text("La Liste des Pharmacies de garde"),
+      automaticallyImplyLeading: false,
     );
   }
 

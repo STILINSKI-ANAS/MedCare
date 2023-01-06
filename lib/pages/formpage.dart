@@ -167,7 +167,7 @@ class _FormPageState extends State<FormPage> {
                                           await SQLhelper.insertPill(pill);
                                         }
                                         await Navigator.of(context)
-                                            .pushNamed(RouteManager.homePage);
+                                            .pushNamed(RouteManager.bottomBar);
                                       }
                                     },
                                   )

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../pages/detailspage.dart';
+import '../pages/bottom_bar.dart';
 import '../pages/doctorpage.dart';
 import '../pages/pharmacypage.dart';
 
@@ -14,6 +15,7 @@ class RouteManager {
   static const String detailsPage = '/details';
   static const String pharmacyPage = '/pharmacy';
   static const String doctorPage = '/doctor';
+  static const String bottomBar = '/bottom';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     late Map<String, dynamic> valuePassed;
@@ -29,6 +31,8 @@ class RouteManager {
         return MaterialPageRoute(builder: (_) => const PharmacyPage());
       case doctorPage:
         return MaterialPageRoute(builder: (_) => const DoctorPage());
+      case bottomBar:
+        return MaterialPageRoute(builder: (_) => const BottomBar());
       case formPage:
         return PageTransition(
             type: PageTransitionType.bottomToTop, child: FormPage());

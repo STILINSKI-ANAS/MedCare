@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../../config/database/sql_helper.dart';
 import '../../models/pill.dart';
 import '../../router/routes.dart';
+import '../../widgets/utils/he_color.dart';
 
 class ReminderList extends StatefulWidget {
   final List<Pill> pills;
@@ -49,7 +50,7 @@ class _ReminderListState extends State<ReminderList> {
                           arguments: {'pill': pill, 'index': index});
                     },
                   ),
-                  const SizedBox(height: 8,)
+                  const SizedBox(height: 12,)
                 ],
               );
               }),
@@ -86,13 +87,21 @@ class PillCard extends StatelessWidget {
         onTap?.call();
       }),
       child: Container(
+
           width: size.width-16,
           margin: const EdgeInsets.symmetric(horizontal: 24),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Theme.of(context).colorScheme.secondary)),
+              border: Border.all(color: Theme.of(context).colorScheme.secondary),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 3),
+                color: HexColor('#404B63').withOpacity(0.1),
+                blurRadius: 10,
+              ),
+            ],),
           child:
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

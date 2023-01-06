@@ -1,12 +1,18 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
+import 'package:medcare/pages/OnBoardingScreen.dart';
 import 'package:medcare/pages/bottom_bar.dart';
+import 'package:medcare/pages/homepage/index.dart';
 import 'package:medcare/router/routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'config/themes/theme.dart';
 import 'package:provider/provider.dart';
 
 main() async {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final showHome = prefs.getBool('showHome')?? false;
+  runApp(MyApp(showHome: showHome));
   AwesomeNotifications().initialize(null, [
     NotificationChannel(
       locked: true,
@@ -22,7 +28,8 @@ main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final bool showHome;
+  const MyApp({Key? key, required this.showHome}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -45,7 +52,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             darkTheme: AppTheme.darkTheme,
             initialRoute: RouteManager.homePage,
             onGenerateRoute: RouteManager.generateRoute,
-            home: const BottomBar(),);
-        });
+            home: widget.showHome ? const BottomBar() : const OnBoardingScreen(),);
+        })
+    ;
   }
 }
