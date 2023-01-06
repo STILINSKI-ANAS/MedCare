@@ -74,8 +74,8 @@ class _FormPageState extends State<FormPage> {
               ),
             ),
             DraggableScrollableSheet(
-                maxChildSize: .7,
-                initialChildSize: .70,
+                maxChildSize: .75,
+                initialChildSize: .75,
                 minChildSize: .70,
                 builder: (context, scrollController) {
                   return Container(
@@ -108,6 +108,7 @@ class _FormPageState extends State<FormPage> {
                         ),
                         SingleChildScrollView(
                           controller: scrollController,
+                          physics: const BouncingScrollPhysics(),
                           child: Form(
                             key: widget._formKey,
                             child: Column(
