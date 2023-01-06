@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class RadioCard extends StatelessWidget {
   const RadioCard(
@@ -25,12 +26,28 @@ class RadioCard extends StatelessWidget {
                 width: 1),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Text(text,
-              style: TextStyle(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Iconsax.clock,
+                size: 18,
                 color: (active)
                     ? Theme.of(context).colorScheme.onSurface
                     : Theme.of(context).colorScheme.onSurface.withOpacity(.33),
-              )),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Text(text,
+                  style: TextStyle(
+                    color: (active)
+                        ? Theme.of(context).colorScheme.onSurface
+                        : Theme.of(context).colorScheme.onSurface.withOpacity(.33),
+                  )),
+            ],
+          ),
         ));
   }
 }

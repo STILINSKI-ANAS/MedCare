@@ -184,14 +184,13 @@ class _FormPageState extends State<FormPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: Color(0xFF32A060),
+      backgroundColor: const Color(0xFF32A060),
       elevation: 0,
-      brightness: Brightness.dark,
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: Colors.white),
       leading: IconButton(
-        icon: Icon(Iconsax.arrow_left, size: 20),
+        icon: const Icon(Iconsax.arrow_left, size: 20),
         onPressed: () => Navigator.pop(context),
-      ),
+      ), systemOverlayStyle: SystemUiOverlayStyle.light,
     );
   }
 
@@ -220,10 +219,10 @@ class _FormPageState extends State<FormPage> {
                     });
                   },
                   active: (widget.formState['morning'] != null),
-                  text: '7:00 AM'),
+                  text: '7:00'),
             ),
             const SizedBox(
-              width: 10,
+              width: 8,
             ),
             Expanded(
               child: RadioCard(
@@ -237,10 +236,10 @@ class _FormPageState extends State<FormPage> {
                     });
                   },
                   active: (widget.formState['afternoon'] != null),
-                  text: '1:00 PM'),
+                  text: '13:00'),
             ),
             const SizedBox(
-              width: 10,
+              width: 8,
             ),
             Expanded(
               child: RadioCard(
@@ -254,7 +253,7 @@ class _FormPageState extends State<FormPage> {
                     });
                   },
                   active: (widget.formState['evening'] != null),
-                  text: '7:00 PM'),
+                  text: '19:00'),
             )
           ],
         ),
@@ -289,7 +288,7 @@ class _FormPageState extends State<FormPage> {
               hint: '1 Comprimé'),
         ),
         const SizedBox(
-          width: 10,
+          width: 8,
         ),
         Expanded(
           child: TextFieldWidget(
