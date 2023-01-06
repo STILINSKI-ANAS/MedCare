@@ -59,6 +59,9 @@ class _DoctorPageState extends State<DoctorPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 8,
+            ),
             _hDoctorsSection(),
             SizedBox(
               height: 32,
@@ -84,25 +87,11 @@ class _DoctorPageState extends State<DoctorPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF32A060),
       elevation: 0,
-      iconTheme: IconThemeData(color: HexColor('#150047')),
-      leading: IconButton(
-        icon: Icon(
-          CustomIcons.menu,
-          size: 14,
-        ),
-        onPressed: () {},
-      ),
-      actions: [
-        IconButton(
-          icon: Icon(
-            CustomIcons.search,
-            size: 20,
-          ),
-          onPressed: () {},
-        ),
-      ], systemOverlayStyle: SystemUiOverlayStyle.dark,
+      iconTheme: const IconThemeData(color: Colors.white),
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      title: const Text("La Liste des Pharmacies de garde"),
     );
   }
 

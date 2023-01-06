@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:map_launcher/map_launcher.dart';
-import 'package:medcare/pages/pharmacypage.dart';
+import 'package:medcare/pages/pharmacie2.dart';
 
 import '../router/routes.dart';
 import 'doctorpage.dart';

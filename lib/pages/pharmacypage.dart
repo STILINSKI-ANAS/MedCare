@@ -25,7 +25,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.only(left: 8, right: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -47,22 +47,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 1.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF2F2F2),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
-                              border: InputBorder.none,
-                              hintText: "Entre le nom de pharmacie",
-                            ),
-                          ),
-                        ),
-                      ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -70,7 +54,8 @@ class _PharmacyPageState extends State<PharmacyPage> {
                         height: 620,
                         child: SingleChildScrollView(
                           physics: BouncingScrollPhysics(),
-                          child: Column(
+                          child:
+                          Column(
                             children: <Widget>[
                               createPharmWidget("lastah.png", "Lastah",
                                   " +212 5288-51685", " F4PG+X7H, Taroudant"),
@@ -124,15 +109,15 @@ class _PharmacyPageState extends State<PharmacyPage> {
   }
 }
 
-Container createPharmWidget(
-    String imgName, String pharmName, String pharmphone, String pharmadresse) {
+Container createPharmWidget(String imgName, String pharmName, String pharmphone, String pharmadresse) {
   return Container(
     padding: const EdgeInsets.all(20),
     decoration: BoxDecoration(
       color: Colors.green[100],
       borderRadius: BorderRadius.circular(12),
     ),
-    child: Row(children: [
+    child: Row(
+      children: [
       //img
       Container(
         width: 90,

@@ -87,7 +87,7 @@ class PillCard extends StatelessWidget {
       }),
       child: Container(
           width: size.width-16,
-          margin: const EdgeInsets.symmetric(horizontal: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 24),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.secondary,

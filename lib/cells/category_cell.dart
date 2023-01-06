@@ -8,15 +8,12 @@ class CategoryCell extends StatelessWidget {
 
   const CategoryCell({ Key? key, required this.category}) : super(key: key);
 
-  /// **********************************************
-  /// LIFE CYCLE METHODS
-  /// **********************************************
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 140,
-      height: 100,
+      height: 50,
       clipBehavior: Clip.hardEdge,
       padding: EdgeInsets.only(top: 14),
       decoration: BoxDecoration(
@@ -54,24 +51,13 @@ class CategoryCell extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 30,
+                height: 20,
                 width: 60,
                 decoration: BoxDecoration(
                     color: HexColor('#FF32A060'),
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(10))),
               ),
-              Positioned(
-                left: 16,
-                child: Text(
-                  'Spécialité',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              )
             ],
           ),
         ],
