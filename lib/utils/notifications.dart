@@ -6,8 +6,8 @@ Future<void> createNotification(DateTime time) async {
     content: NotificationContent(
       id: createUniqueId(),
       channelKey: 'pill_channel',
-      title: "Rappel de pilule",
-      body: "Il est temps de prendre votre pilule",
+      title: "Rappel de Medicament",
+      body: "Il est temps de prendre votre Medicament",
       notificationLayout: NotificationLayout.Default,
     ),
     actionButtons: [
