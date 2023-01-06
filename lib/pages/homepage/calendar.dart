@@ -6,7 +6,10 @@ import '../../config/database/sql_helper.dart';
 class CalendarDelegate extends StatefulWidget {
   final DateTime date;
   final Function callbackFunction;
-  const CalendarDelegate({Key? key, required this.date, required this.callbackFunction}) : super(key: key);
+
+  const CalendarDelegate(
+      {Key? key, required this.date, required this.callbackFunction})
+      : super(key: key);
 
   @override
   State<CalendarDelegate> createState() => _CalendarDelegateState();
@@ -18,7 +21,7 @@ class _CalendarDelegateState extends State<CalendarDelegate> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           border: Border(
@@ -34,17 +37,14 @@ class _CalendarDelegateState extends State<CalendarDelegate> {
             Row(
               children: [
                 RichText(
-                  text:  TextSpan(
-                    style: const TextStyle(
-                        fontSize: 24,
-                        color: Colors.black
-                    ),
+                  text: TextSpan(
+                    style: const TextStyle(fontSize: 24, color: Colors.black),
                     children: <TextSpan>[
                       TextSpan(
-                           text: '${DateFormat('MMMM').format(DateTime.now())} ',
-                              style: const TextStyle(fontWeight: FontWeight.w500)),
+                          text: '${DateFormat('MMMM').format(DateTime.now())} ',
+                          style: const TextStyle(fontWeight: FontWeight.w500)),
                       TextSpan(
-                            text: DateFormat('yyyy').format(DateTime.now()),
+                        text: DateFormat('yyyy').format(DateTime.now()),
                       ),
                     ],
                   ),
@@ -52,32 +52,31 @@ class _CalendarDelegateState extends State<CalendarDelegate> {
                 const Icon(Iconsax.arrow_right_3)
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10,),
             Row(children: [
-              ...List<Expanded>.generate(7, (index) => Expanded(
-                child: DatePill(
-                  date: DateTime.utc(
-                    DateTime.now().year,
-                    DateTime.now().month,
-                    DateTime.now().day,
-                  ).add(Duration(days: index)),
-                  onPressed: () {
-                    widget.callbackFunction();
-                    setState(() {
-                      // print(index);
-                      _selectedPill = index;
-                    });
-                  },
-                  active: index == _selectedPill,
-                ),
-              ))
+              ...List<Expanded>.generate(
+                  7,
+                  (index) => Expanded(
+                        child: DatePill(
+                          date: DateTime.utc(
+                            DateTime.now().year,
+                            DateTime.now().month,
+                            DateTime.now().day,
+                          ).add(Duration(days: index)),
+                          onPressed: () {
+                            widget.callbackFunction();
+                            setState(() {
+                              // print(index);
+                              _selectedPill = index;
+                            });
+                          },
+                          active: index == _selectedPill,
+                        ),
+                      ))
             ]),
           ],
         ));
   }
-
 }
 
 class DatePill extends StatelessWidget {
@@ -103,9 +102,9 @@ class DatePill extends StatelessWidget {
             child: Container(
               decoration: active
                   ? BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                      color: Theme.of(context).colorScheme.secondary))
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                          color: Theme.of(context).colorScheme.secondary))
                   : null,
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: Column(children: [

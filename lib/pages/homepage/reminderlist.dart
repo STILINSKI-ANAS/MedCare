@@ -33,32 +33,25 @@ class _ReminderListState extends State<ReminderList> {
         child: SizedBox(
           width: size.width,
           child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               itemCount: (widget.pills != null) ? widget.pills.length : 0,
               itemBuilder: (BuildContext context, int index) {
               Pill pill = widget.pills![index];
-              return Container(
-                  height: 130,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          PillCard(
-                            callbackFunction: widget.callbackFunction,
-                            index: index,
-                            pill: pill,
-                            onTap: () async {
-                              await Navigator.of(context).pushNamed(
-                                  RouteManager.detailsPage,
-                                  arguments: {'pill': pill, 'index': index});
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      )
-                    ],
-                  ));
+              return Column(
+                children: [
+                  PillCard(
+                    callbackFunction: widget.callbackFunction,
+                    index: index,
+                    pill: pill,
+                    onTap: () async {
+                      await Navigator.of(context).pushNamed(
+                          RouteManager.detailsPage,
+                          arguments: {'pill': pill, 'index': index});
+                    },
+                  ),
+                  const SizedBox(height: 8,)
+                ],
+              );
               }),
     ));
   }
@@ -81,7 +74,7 @@ class PillCard extends StatelessWidget {
 
   static String formatTimeOfDay(DateTime tod) {
     final dt = DateTime(tod.year, tod.month, tod.day, tod.hour, tod.minute);
-    final format = DateFormat.jm(); //"6:00 AM"
+    final format = DateFormat.Hm(); //"6:00 AM"
     return format.format(dt);
   }
 
@@ -93,117 +86,112 @@ class PillCard extends StatelessWidget {
         onTap?.call();
       }),
       child: Container(
-          width: size.width,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          width: size.width-16,
+          margin: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(12),
-              border:
-                  Border.all(color: Theme.of(context).colorScheme.secondary)),
+              border: Border.all(color: Theme.of(context).colorScheme.secondary)),
           child:
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Hero(
-              tag: 'image$index',
-              child: Image.asset(
-                "assets/images/Pill.png",
-                fit: BoxFit.cover,
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Hero(
+                tag: 'image$index',
+                child: Image.asset(
+                  "assets/images/Pill.png",
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 50,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${pill.title}',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                      color: Colors.white),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  '${pill.dosage} comprimé(s)',
-                  style: TextStyle(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onPrimary
-                          .withOpacity(1),
-                      fontSize: 14),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Iconsax.clock,
-                      size: 18,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onPrimary
-                          .withOpacity(1),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      formatTimeOfDay(pill.time),
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onPrimary
-                              .withOpacity(1)),
-                    )
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(width: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
+              const SizedBox(width: 20,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${pill.title}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                        color: Colors.white),
                   ),
-                  width: 60,
-                  height: 80,
-                  padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
-                  child: Center(
-                    child: ListView(
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    '${pill.dosage} comprimé(s)',
+                    style: TextStyle(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onPrimary
+                            .withOpacity(1),
+                        fontSize: 14),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Iconsax.clock,
+                        size: 18,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onPrimary
+                            .withOpacity(1),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        formatTimeOfDay(pill.time),
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary
+                                .withOpacity(1)),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              const SizedBox(width: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.white,
+                    ),
+                    width: 50,
+                    height: 56,
+                    padding: EdgeInsets.only(top: 10, bottom: 5),
+                    child: Column(
                       children: [
                         Center(
                             child: Text(
                           '${pill.weight}',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
                         )),
-                        Center(
+                        const Center(
                             child: Text(
                           "mg",
                           textAlign: TextAlign.center,
                         )),
                       ],
                     ),
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Column(
+                  )
+                ],
+              ),
+              // const SizedBox(width: 10,),
+              Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
                   iconSize: 40,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.delete_forever,
                     color: Colors.white,
                   ),

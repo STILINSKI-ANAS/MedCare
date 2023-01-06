@@ -64,16 +64,16 @@ class TopBar extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width,
-      height: 150,
+      height: 125/**/,
       child: Stack(fit: StackFit.expand, children: [
         Image.asset(
           "assets/images/Background.png",
           fit: BoxFit.cover,
         ),
         Positioned(
-           bottom: 30,
-            left: MediaQuery.of(context).size.width / 2 - 100,
-            right: MediaQuery.of(context).size.width / 2 - 100,
+           bottom: 10,
+            left: size.width / 2 - 100,
+            right: size.width / 2 - 100,
             child: RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(

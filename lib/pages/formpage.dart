@@ -34,9 +34,7 @@ class _FormPageState extends State<FormPage> {
   void getId() async {
     var data = await SQLhelper.getmaxId();
     setState(() {
-      // print("..id is: ${data}");
       id = data + 1;
-      // print("..id after is: ${id}");
     });
   }
 
