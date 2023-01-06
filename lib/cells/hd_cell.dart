@@ -28,7 +28,7 @@ class HDCell extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Positioned(
+            const Positioned(
               top: 16,
               right: 16,
               child: SizedBox(
@@ -45,7 +45,7 @@ class HDCell extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Dr.',
                     style: TextStyle(
                       color: Colors.white,
@@ -102,7 +102,7 @@ class HDCell extends StatelessWidget {
             ),
             Positioned(
               right: 16,
-              bottom: 0,
+              bottom: -7,
               child: SizedBox(
                 width: 120,
                 height: 173,
