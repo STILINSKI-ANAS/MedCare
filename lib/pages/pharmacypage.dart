@@ -192,7 +192,6 @@ Container createPharmWidget(
 }
 
 class pathPainter extends CustomPainter {
-
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
