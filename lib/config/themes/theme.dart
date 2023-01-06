@@ -42,19 +42,16 @@ class AppTheme {
            fontSize: 25,
            color: Color(0xFF32A060),
            fontWeight: FontWeight.bold,
-         ),
-         headline2: TextStyle(
+         ),headline2: TextStyle(
              fontSize: 18,
              color: Colors.black,
              fontWeight: FontWeight.w400,
              wordSpacing: 1.2,
-             height: 1.2),
-         headline3: TextStyle(
+             height: 1.2),headline3: TextStyle(
            fontSize: 18,
            color: Color(0xFF32A060),
            fontWeight: FontWeight.bold,
-         ),
-         headline4: TextStyle(
+         ),headline4: TextStyle(
            fontSize: 18,
            color: Colors.white,
            fontWeight: FontWeight.bold,
@@ -88,7 +85,27 @@ class AppTheme {
           onBackground: Colors.black,
 
           onError: Colors.black,
-          brightness: Brightness.light));
+          brightness: Brightness.light),
+          textTheme: const TextTheme(
+            headline1: TextStyle(
+              fontSize: 25,
+              color: Color(0xFF32A060),
+              fontWeight: FontWeight.bold,
+            ),headline2: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.w400,
+              wordSpacing: 1.2,
+              height: 1.2),headline3: TextStyle(
+            fontSize: 18,
+            color: Color(0xFF32A060),
+            fontWeight: FontWeight.bold,
+          ),headline4: TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+      ));
 }
 
 const leagues = {
