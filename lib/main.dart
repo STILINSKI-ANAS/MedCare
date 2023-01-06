@@ -1,16 +1,12 @@
-import 'dart:io';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:medcare/pages/bottom_bar.dart';
 import 'package:medcare/router/routes.dart';
-import 'package:path_provider/path_provider.dart';
 import 'config/themes/theme.dart';
 import 'package:provider/provider.dart';
 
 main() async {
   runApp(const MyApp());
-  final dir = (await getApplicationDocumentsDirectory()).path;
-  File('$dir/data.json').writeAsStringSync('');
   AwesomeNotifications().initialize(null, [
     NotificationChannel(
       locked: true,
