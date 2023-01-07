@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 import '../models/pill.dart';
 class DetailsPage extends StatefulWidget {
